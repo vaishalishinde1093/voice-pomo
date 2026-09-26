@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VoxPomo – microphone access</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #15161a; color: #e8e6e1;
+         font-family: "Avenir Next Condensed", "Bahnschrift", "Segoe UI", system-ui, sans-serif; }
+  main { max-width: 440px; padding: 40px; background: #23252b; border-radius: 22px; box-shadow: 0 30px 60px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.06); }
+  h1 { font-size: 28px; font-weight: 600; margin: 0 0 8px; letter-spacing: .01em; }
+  p { line-height: 1.5; color: #b7b9c0; margin: 0 0 20px; }
+  button { font: inherit; font-size: 17px; font-weight: 600; padding: 12px 22px; border: 0; border-radius: 999px; cursor: pointer;
+           background: #ff6a3d; color: #1a0c07; box-shadow: 0 6px 0 #b3431f; }
+  button:active { transform: translateY(3px); box-shadow: 0 3px 0 #b3431f; }
+  button:focus-visible { outline: 3px solid #ffd2c4; outline-offset: 3px; }
+  #status { margin-top: 18px; min-height: 24px; font-size: 15px; }
+  .ok { color: #3ddc97; } .err { color: #ff8a70; }
+  ul { color: #b7b9c0; line-height: 1.6; padding-left: 20px; }
+  code { background: #15161a; padding: 2px 6px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Let VoxPomo hear you</h1>
+  <p>Voice commands need microphone access once. Chrome will ask for permission; choose <b>Allow</b>. Nothing is recorded or sent anywhere except to Chrome's own speech service.</p>
+  <button id="grant">Allow microphone</button>
+  <div id="status"></div>
+  <p style="margin-top:28px">Things you can say once it's on:</p>
+  <ul>
+    <li><code>start</code>, <code>pause</code>, <code>resume</code>, <code>reset</code>, <code>skip</code></li>
+    <li><code>set a 45 minute timer</code>, <code>take a 10 minute break</code></li>
+    <li><code>notify me halfway</code>, <code>how much time is left</code></li>
+    <li><code>set an alarm for 3:30 pm</code>, <code>alarm in 20 minutes</code></li>
+    <li><code>start stopwatch</code>, <code>lap</code>, <code>stop stopwatch</code></li>
+    <li><code>pin the clock</code>, <code>show the clock</code>, <code>mute</code></li>
+  </ul>
+</main>
+<script src="permission.js"></script>
+</body>
+</html>

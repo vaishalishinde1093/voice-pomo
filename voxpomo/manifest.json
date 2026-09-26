@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "VoxPomo – Voice Pomodoro Clock",
+  "version": "1.0.0",
+  "description": "A voice-controlled Pomodoro timer, stopwatch and alarm clock that floats over any page or sits quietly in your toolbar.",
+  "minimum_chrome_version": "116",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "offscreen",
+    "tts"
+  ],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "VoxPomo",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["lib/*", "assets/*"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "options_page": "permission.html",
+  "commands": {
+    "toggle-listening": {
+      "suggested_key": { "default": "Alt+Shift+V", "mac": "MacCtrl+Shift+V" },
+      "description": "Start or stop voice listening"
+    },
+    "toggle-floater": {
+      "suggested_key": { "default": "Alt+Shift+P", "mac": "MacCtrl+Shift+P" },
+      "description": "Show or hide the floating clock"
+    },
+    "start-pause": {
+      "suggested_key": { "default": "Alt+Shift+S", "mac": "MacCtrl+Shift+S" },
+      "description": "Start or pause the timer"
+    }
+  }
+}
