@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "VoxPomo – Voice Pomodoro Clock",
+  "name": "Pomo – Voice Timer, Stopwatch & Alarm",
+  "short_name": "Pomo",
   "version": "1.0.0",
-  "description": "A voice-controlled Pomodoro timer, stopwatch and alarm clock that floats over any page or sits quietly in your toolbar.",
-  "minimum_chrome_version": "116",
+  "description": "Voice-controlled Pomodoro timer, stopwatch and alarm. Say \"set a 25 minute timer\" and a floating digital clock does the rest.",
+  "minimum_chrome_version": "120",
   "permissions": [
     "storage",
     "alarms",
@@ -11,13 +12,12 @@
     "offscreen",
     "tts"
   ],
-  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js",
     "type": "module"
   },
   "action": {
-    "default_title": "VoxPomo",
+    "default_title": "Pomo",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "assets/icon16.png",
@@ -39,7 +39,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["lib/*", "assets/*"],
+      "resources": ["lib/clock.js", "assets/*"],
       "matches": ["http://*/*", "https://*/*"]
     }
   ],
